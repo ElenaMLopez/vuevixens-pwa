@@ -1,5 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/messaging';
+import * as admin from 'firebase-admin';
+import serviceAccount from '/Users/bmontalvo/Documents/Vixens/firebase-adminsdk.json';
+
 
 export const Firebase = {
   init() {
@@ -11,7 +14,8 @@ export const Firebase = {
       storageBucket: "vuevixens-pwa.appspot.com",
       messagingSenderId: "1056270913057",
       appId: "1:1056270913057:web:91d0626bf1607917d55d60",
-      measurementId: "G-XG602G5TGZ"
+      measurementId: "G-XG602G5TGZ",
+      credential: admin.credential.cert(serviceAccount),
     };
     
     firebase.initializeApp(config);
@@ -23,7 +27,7 @@ export const Firebase = {
   
     msg.usePublicVapidKey("BFVCdJCcqctSUqTRaIW11kvUKb3iTCwBVTYoc7AHdIlKMyBZvPE_VZV2dLKxk0PyjGGveM9r59gGy-SGienLboI");
 
-    console.log('configurado firebase messaging')
+    console.log('Set firebase messaging config')
 
     return msg;
   }

@@ -64,7 +64,6 @@ const messaging = Firebase.messaging()
       console.log('Token already sent to server so won\'t send it again ' +
           'unless it changes');
     }
-
   }
 
   function isTokenSentToServer() {
